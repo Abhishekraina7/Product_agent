@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snapdeal Chat Assistant</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f8f8f8;
+    }
+    .chat-box {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .message {
+      margin: 0.5rem 0;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      background: #fefefe;
+    }
+    .product-card img {
+      max-width: 100px;
+      display: block;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="chat-box">
+  <h2>🛍️ Snapdeal Shopping Assistant</h2>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Type your request..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+  const socket = io("http://localhost:5000");
+  const chat = document.getElementById("chat");
+
+  function appendMessage(text, isBot = true) {
+    const msg = document.createElement("div");
+    msg.className = "message";
+    msg.innerText = (isBot ? "🤖 " : "🧑 ") + text;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function appendProduct(product) {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <strong>${product.title}</strong><br>
+      Price: ${product.price} (${product.discount})<br>
+      <a href="${product.link}" target="_blank">View</a><br>
+      <img src="${product.image}" alt="product image">
+    `;
+    chat.appendChild(card);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const text = input.value.trim();
+    if (!text) return;
+    appendMessage(text, false);
+    socket.emit("user_message", { text });
+    input.value = "";
+  }
+
+  socket.on("bot_message", data => {
+    appendMessage(data.text);
+  });
+
+  socket.on("product", product => {
+    appendProduct(product);
+  });
+</script>
+</body>
+</html>

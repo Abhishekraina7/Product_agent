@@ -1,0 +1,6 @@
+flask
+flask-socketio
+python-dotenv
+playwright
+langchain
+langchain-groq 
