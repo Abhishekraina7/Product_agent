@@ -1,127 +1,112 @@
-# SmartSearch - AI-Powered Product Search
+# SmartSearch
 
-A modern Next.js frontend connected to a Flask + Playwright backend for intelligent product recommendations.
+An AI-first product search application that revolutionizes how users find the perfect products. SmartSearch eliminates the headache of browsing through countless options by leveraging artificial intelligence to understand user needs and deliver precisely what they're looking for.
 
-## 🚀 Quick Start
+### Technology Stack
 
-### Frontend Setup
-```bash
-npm install
-npm run dev
+- **Frontend Framework**: Next.js with React
+- **Styling**: Tailwind CSS for utility-first styling
+- **UI Components**: shadcn/ui for accessible, pre-built components
+- **Language**: TypeScript for type safety
+- **Development**: Hot reload with automatic browser refresh
+
+### Use Cases
+
+- **E-commerce Platforms**: Enhance product discovery for online retailers
+- **Marketplace Applications**: Improve search functionality for multi-vendor platforms
+- **Product Comparison**: Help users find and compare products efficiently
+- **Personalized Shopping**: Deliver tailored product recommendations
+
+## Setup
+
+### Prerequisites
+
+Make sure you have Node.js installed on your computer. You can download it from [nodejs.org](https://nodejs.org) (version 16 or higher recommended).
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Abhishekraina7/SmartSearch.git
+   ```
+
+2. **Navigate to the project directory**
+   ```bash
+   cd SmartSearch
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   
+   Go to [http://localhost:3000](http://localhost:3000) to see the application running.
+
+The development server will start immediately, and you should be able to see the Walmart AI Search landing page right away.
+
+### Available Scripts
+
+- `npm run dev` - Starts the development server
+- `npm run build` - Builds the project for production
+- `npm run start` - Starts the production server (after building)
+- `npm run lint` - Runs ESLint to check for code issues
+
+### Development Features
+
+- **Hot Reload**: Changes to your code will automatically refresh the browser
+- **TypeScript Support**: Full TypeScript integration with type checking
+- **Tailwind CSS**: Utility-first CSS framework for rapid styling
+- **shadcn/ui Components**: Pre-built, accessible UI components
+- **Static Export**: Configured to export as a static site for easy deployment
+
+### Project Structure
+
+```
+SmartSearch/
+├── components/          # Reusable UI components
+├── pages/              # Next.js pages
+├── styles/             # Global styles and Tailwind config
+├── public/             # Static assets
+├── types/              # TypeScript type definitions
+└── ...
 ```
 
-### Backend Setup
-1. Clone the backend repository:
-```bash
-git clone https://github.com/Danish811/Intelligent-Product-Recommender-Backend
-cd Intelligent-Product-Recommender-Backend
-```
+### Deployment
 
-2. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
+The project is configured to export as a static site, making it easy to deploy to various hosting platforms such as:
 
-3. Install Playwright browsers:
-```bash
-playwright install
-```
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3
+- Any static hosting service
 
-4. Start the Flask server:
-```bash
-python app.py
-```
+Simply run `npm run build` to generate the production build.
 
-The backend will run on `http://localhost:5000` by default.
-
-### Testing the Integration
-1. Start the backend server first
-2. Start the frontend development server
-3. Try searching for products like "wireless headphones" or "laptop"
-
-### Troubleshooting
-- **CORS Issues**: Make sure your Flask app has CORS enabled
-- **Connection Refused**: Ensure the backend is running on port 5000
-- **No Results**: Check the backend logs for scraping errors
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env.local` file in the frontend root:
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000
-```
-
-### API Integration
-The frontend connects to your Flask backend through:
-- **Search endpoint**: `POST /search`
-- **Health check**: `GET /health` (optional)
-
-## 📡 API Usage
-
-### Search Request Format
-```json
-{
-  "query": "wireless headphones",
-  "limit": 20,
-  "filters": {
-    "min_price": 50,
-    "max_price": 500,
-    "min_rating": 4.0
-  }
-}
-```
-
-### Expected Response Format
-```json
-{
-  "products": [
-    {
-      "id": "1",
-      "name": "Product Name",
-      "price": 99.99,
-      "originalPrice": 129.99,
-      "rating": 4.5,
-      "reviews": 1234,
-      "image": "https://example.com/image.jpg",
-      "discount": 23,
-      "url": "https://example.com/product",
-      "description": "Product description"
-    }
-  ],
-  "query": "wireless headphones",
-  "total_results": 50
-}
-```
-
-## 🛠️ Development
-
-### Frontend Features
-- ✨ Beautiful UI with animated gradient effects
-- 🔍 Real-time search with loading states
-- 📱 Responsive design
-- 🎨 Modern glassmorphism design
-- ⚡ TypeScript for type safety
-
-### Backend Integration
-- 🔗 RESTful API integration
-- 🛡️ Error handling and fallbacks
-- 🔄 Loading states and user feedback
-- 📊 Type-safe data handling
-
-## 🚀 Deployment
-
-### Frontend (Vercel/Netlify)
-```bash
-npm run build
-```
-
-### Backend (Your preferred hosting)
-Make sure to update the `NEXT_PUBLIC_API_URL` environment variable to point to your production backend URL.
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test the integration
-5. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Author
+
+**Abhishek Raina**
+- GitHub: [@Abhishekraina7](https://github.com/Abhishekraina7)
+
+---
+
+*Built with ❤️ using Next.js, TypeScript, and Tailwind CSS*
