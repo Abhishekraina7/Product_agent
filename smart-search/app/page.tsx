@@ -11,10 +11,10 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useRouter } from 'next/navigation';
 
 const suggestionQueries = [
-  "Find me the best wireless headphones under 1000",
-  "What are the top-rated kitchen appliances for small spaces?",
-  "Show me gaming laptops with good battery life",
-  "Best smart home devices for beginners"
+  "Affordable sandals for men",
+  "Women's kurtis with latest designs",
+  "Dish racks and kitchen organizers under 500",
+  "Home decor items for living room"
 ];
 
 export default function Home() {
@@ -53,7 +53,11 @@ export default function Home() {
         const idx = pendingBlockIdxRef.current;
         if (idx === null) return blocks;
         const updated = [...blocks];
-        updated[idx].products = [...updated[idx].products, product];
+        // Deduplicate only within this block
+        const exists = updated[idx].products.some(p => p.id === product.id);
+        if (!exists) {
+          updated[idx].products = [...updated[idx].products, product];
+        }
         updated[idx].loading = false;
         return updated;
       });
