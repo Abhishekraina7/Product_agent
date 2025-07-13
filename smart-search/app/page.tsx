@@ -110,7 +110,7 @@ export default function Home() {
           </div>
           <div className="p-5">
             <h3 className="font-semibold text-white text-sm line-clamp-2 mb-3 group-hover:text-blue-300 transition-colors leading-relaxed">
-              {product.name}
+              {product.title || product.name}
             </h3>
             <div className="flex items-center mb-3">
               <div className="flex items-center">
