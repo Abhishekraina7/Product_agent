@@ -1,12 +1,56 @@
-# Intelligent Product Recommender Backend
 
-This is the backend for the Intelligent Product Recommender system. It uses Flask, Socket.IO, Playwright, and LangChain with Groq LLM integration to provide real-time product recommendations via web scraping and LLM-powered keyword extraction.
+# 🧠 Intelligent Product Recommender – Backend
 
-## Features
-- Real-time chat with product recommendations
-- Snapdeal web scraping using Playwright
-- LLM-powered keyword extraction (Groq)
-- Socket.IO for real-time communication
+This is the backend server for the **Intelligent Product Recommender** system. It powers real-time product suggestions using:
+
+- 🧠 **Llama3 LLM + LangChain** for intelligent keyword extraction  
+- 🔍 **Playwright** for live web scraping (Snapdeal)  
+- 🔌 **Flask + Socket.IO** for fast real-time chat response
+
+> It listens to user queries via socket events, extracts intent, scrapes products, and sends live responses to the frontend.
+
+---
+
+## 📹 Demo
+
+Watch a working demo here:  
+👉 [https://www.youtube.com/watch?v=evSACLFsneE](https://www.youtube.com/watch?v=evSACLFsneE)
+
+
+---
+
+## ⚙️ Features
+
+- 🧠 LLM Powered Product intent understanding (via LangChain)
+- 🔍 Live web scraping with Playwright
+- ⚡ Real-time communication with Socket.IO architecture
+- 💬 Easy integration with any Socket.IO-based frontend
+
+---
+
+## 🏗️ Tech Stack
+
+| Component     | Technology            |
+|---------------|------------------------|
+| Language      | Python 3.9+            |
+| Framework     | Flask                  |
+| Real-time     | Flask-SocketIO         |
+| Scraping      | Playwright (headless)  |
+| LLM API       | Llama3 + LangChain     |
+| Deployment    | Localhost / Any WSGI   |
+
+---
+
+## 📁 Folder Structure
+
+Backend_with_scrapper_n_LLM/
+├── run.py # Entry point to run the Flask server
+├── index.html # Basic test client (browser chat interface)
+├── requirements.txt # Python dependencies
+└── app/
+└── .env # Place your groq_api_key here
+
+---
 
 ## Requirements
 - Python 3.9+
@@ -58,3 +102,6 @@ The server will start on `http://localhost:5000`.
 
 ## Author
 Mohd. Danish Sheikh
+GitHub: @Danish811
+
+
